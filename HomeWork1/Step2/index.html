@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <title>
+    </title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="scripts/angular/angular.js"></script>
+    <script src="scripts/app/app.module.js"></script>
+    <script src="scripts/catModule/controllers/catController.js"></script>
+</head>
+
+<body ng-controller="CatClicker as vm">
+    <h4>{{vm.message}} </h4>
+    <div>
+        <ul>
+            <li ng-repeat="cat in vm.catDisplayData track by $index" class="clearfix float-my-children">
+                <img ng-src="{{cat.imageUrl}}" alt="Cat" ng-click="vm.getCatCount($index)" class="singleCat">
+                <div>
+                    <label class="label">Cat Name : {{cat.catName}}</label></br>
+                    <label class="label">Count: {{cat.count}}</label>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
