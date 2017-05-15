@@ -16,18 +16,18 @@
         <ul>
             <li ng-repeat="cat in cc.catInfo track by $index">
                 <a href="#" data-ng-click="cc.getCatInfo(cat)">{{cat.catName}}</a>
-                <span><img ng-src="{{cc.tickImg}}"  ng-show="cat.isViewed" class="tickStyle"></span>
+                <span><img ng-src="{{cc.tickImg}}" ng-show="cat.isViewed" class="tickStyle"></span>
             </li>
         </ul>
         <div class="clearfix float-my-children" ng-if="cc.selectedCat">
-            
+
             <img ng-src="{{cc.selectedCat.imageUrl}}" alt="Cat" class="singleCat">
-
-            <label class="label">Cat Name : </label> {{cc.selectedCat.catName}} </br>
-
-            <label class="label">Vote Count</label>
-            <input id="voteCount" type="number" min="0" max="100" value="1" ng-model="cc.selectedCat.voteCount" ng-init="voteCount=0">
-
+            <div>
+                <label class="label">Cat Name : {{cc.selectedCat.catName}} </label> </br>
+                </br>
+                <label class="label">Vote Count</label>
+                <input id="voteCount" type="number" min="0" max="100" value="1" ng-model="cc.selectedCat.voteCount" ng-init="voteCount=0">
+            </div>
         </div>
     </div>
 </body>

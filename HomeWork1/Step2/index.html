@@ -12,16 +12,14 @@
 
 <body ng-controller="CatClicker as vm">
     <h4>{{vm.message}} </h4>
-    <div>
-        <ul>
-            <li ng-repeat="cat in vm.catDisplayData track by $index" class="clearfix float-my-children">
-                <img ng-src="{{cat.imageUrl}}" alt="Cat" ng-click="vm.getCatCount($index)" class="singleCat">
-                <div>
-                    <label class="label">Cat Name : {{cat.catName}}</label></br>
-                    <label class="label">Count: {{cat.count}}</label>
-                </div>
-            </li>
-        </ul>
+    <div ng-repeat="cat in vm.catDisplayData track by $index" class="clearfix float-my-children">
+
+        <img ng-src="{{cat.imageUrl}}" alt="Cat" ng-click="vm.getCatCount($index)" class="singleCat">
+        <div>
+            <label class="label">Cat Name : {{cat.catName}}</label></br>
+            <label class="label">Count: {{cat.count}}</label>
+        </div>
+
     </div>
 </body>
 
