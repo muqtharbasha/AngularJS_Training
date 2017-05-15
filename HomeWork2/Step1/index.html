@@ -10,23 +10,24 @@
     <script src="scripts/catModule/controllers/catController.js"></script>
 </head>
 
-<body ng-controller="CatClicker as vm">
-    <h4>{{vm.message}} </h4>
+<body ng-controller="CatClicker as cc">
     <div>
-        <ul ng-repeat="catList in vm.catsList track by $index">
-            <a href="#" data-ng-click="vm.displayCatData($index)">{{catList.catName}}</a>
+        <h4>{{cc.message}} </h4>
+        <ul>
+            <li ng-repeat="cat in cc.catInfo track by $index">
+                <a href="#" data-ng-click="cc.getCatInfo(cat)">{{cat.catName}}</a>
+                <span><img ng-src="{{cc.tickImg}}"  ng-show="cat.isViewed" class="tickStyle"></span>
+            </li>
         </ul>
-        <div>
-            <ul>
-                <li ng-repeat="cat in vm.filterResult track by $index" class="clearfix float-my-children">
-                    <img ng-src="{{cat.imageUrl}}" alt="Cat" ng-click="vm.getCatCount(cat.id)" class="singleCat">
-                     <span ><img ng-src="{{vm.tick}}"  ng-show="{{vm.catResult.isViewed}}" class="tickStyle"></span>
-                    <div>
-                        <label class="label">Cat Name : {{cat.catName}}</label></br>
-                        <label class="label">Count: {{cat.count}}</label>
-                    </div>
-                </li>
-            </ul>
+        <div class="clearfix float-my-children" ng-if="cc.selectedCat">
+            
+            <img ng-src="{{cc.selectedCat.imageUrl}}" alt="Cat" class="singleCat">
+
+            <label class="label">Cat Name : </label> {{cc.selectedCat.catName}} </br>
+
+            <label class="label">Vote Count</label>
+            <input id="voteCount" type="number" min="0" max="100" value="1" ng-model="cc.selectedCat.voteCount" ng-init="voteCount=0">
+
         </div>
     </div>
 </body>
