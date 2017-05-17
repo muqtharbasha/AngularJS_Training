@@ -8,7 +8,7 @@
 
         var vm = this;
 
-        vm.message = "Add a search box and orderBy fields";
+        vm.message = "Step 2. Add a search box and orderBy fields";
         vm.tickImg = 'images/tick.png';
 
         vm.selectedCat = null;

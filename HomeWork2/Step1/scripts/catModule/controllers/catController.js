@@ -7,8 +7,8 @@
     function CatClicker() {
 
         var vm = this;
-        
-        vm.message = "Display List of Cats with Display Area and Increase the Count on Image Click";
+
+        vm.message = "Step 1. Enhance cat’s list with votes and ticks";
         vm.tickImg = 'images/tick.png';
 
         vm.selectedCat = null;
