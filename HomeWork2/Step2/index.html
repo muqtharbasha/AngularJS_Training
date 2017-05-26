@@ -19,6 +19,7 @@
         <input type="button" value="Search" data-ng-click="cc.searchCatData(catName)">
     </div>
     <div>
+        <h4>Sort List of Cat Names</h4>
         <select name="singleSelect" ng-model="sortBy" ng-change="cc.setOrder(sortBy)" class="selectOrder">
             <option value="">---Please select---</option>
             <option value="asc">Ascending</option>
@@ -27,7 +28,7 @@
     </div>
     <div>
         <ul>
-            <h4>List of Cat Names</h4>
+
             <li ng-repeat="cat in cc.catInfo | orderBy: cc.order">
                 <a href="#" data-ng-click="cc.getCatInfo(cat)">{{cat.catName}}</a>
             </li>

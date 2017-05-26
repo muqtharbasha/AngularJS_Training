@@ -12,33 +12,38 @@
 </head>
 
 <body ng-controller="CatClicker as cc">
-    <form ng-submit="cc.submit()" name="catForm">
+    <form name="catForm" ng-submit="cc.submit(catForm.$valid)" novalidate>
         <div>
+            <h1> Add New Cat Details </h1>
+        </div>
+        <div>
+            <label for="catName">Cat Name : </label>
 
-            <label for="catName">Cat Name</label>
-            <input type="text" name="cName" ng-model="cc.cat.catName" placeholder="Enter Cat Name" required ng-minlength="5" ng-maxlength="20"
-                ng-pattern="/^[A-z][A-z0-9]*$/" />
+            <input type="text" name="cName" ng-model="cc.cat.catName" placeholder="Enter Cat Name" required ng-minlength="1" ng-maxlength="20"
+                pattern="[a-zA-Z ]*$" ng-pattern-restrict style="width: 250px" />
 
             <span ng-show="catForm.cName.$dirty && catForm.cName.$error.required">This is a required field</span>
 
             <span ng-show="!catForm.cName.$error.minLength && !catForm.cName.$error.maxLength 
-            && catForm.cName.$error.pattern && catForm.cName.$dirty">Must start with a letter, 
-            and contain letters &amp; numbers only.</span>
+            && catForm.cName.$error.pattern">
+            Min = 1 and Max length =20, Enter only Alphabets</span>
 
-            <br/>  <br/>
-            <label for="catURL">Enter URL</label>
-            <!--<input type="url" name="cUrl" ng-model="cc.cat.url" placeholder="Url" required  ng-change="cc.checkURL(cccat.url)"/>-->
+            <br/> <br/>
 
-            <input image-url-verify url="imageUrl" image-valid="imageOk" />
+            <label for="catURL">Enter URL: </label>
+            <input name="cUrl" image-url-verify url="cc.cat.imageUrl" image-valid="imageOk" required style="width: 250px" />
 
-            <span style="color:red" ng-show="catForm.cUrl.$error.required">This is a required field</span>
-            <span ng-show="catForm.cUrl.$error.url">enter a a valid url</span>
+            <span ng-show="catForm.cUrl.$dirty && catForm.cUrl.$error.required">This is a required field</span>
+            <span ng-show="catForm.cUrl.$dirty && !imageOk
+            && cc.cat.imageUrl != null">Enter Valid Image URL</span>
             <br/>
             <br/>
-            <input type="reset" value='Reset' ng-disabled="catForm.$pristine" />
+
+            <input type="reset" value='Reset' ng-click="cc.reset()" />
             <input type="submit" value='submit' ng-disabled="catForm.$invalid" />
-
-
+        </div>
+        <div ng-show="imageOk">
+            <img ng-src="{{cc.cat.imageUrl}}" alt="Cat" class="singleCat">
         </div>
     </form>
 </body>

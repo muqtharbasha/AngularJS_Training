@@ -1,0 +1,24 @@
+{
+  "name": "angular-training",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "angular": "^1.4.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"start": "http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muqtharbasha/AngularJS_Training.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/muqtharbasha/AngularJS_Training/issues"
+  },
+  "homepage": "https://github.com/muqtharbasha/AngularJS_Training#readme"
+}
