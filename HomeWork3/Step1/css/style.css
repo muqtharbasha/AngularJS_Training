@@ -45,3 +45,9 @@ input[type=button] {
 div{
     margin-bottom: 10px;
 }
+.active { color: red; font-weight: bold; }
+
+.catimg {
+    width : 200px;
+    height : 200px;
+}

@@ -1,0 +1,33 @@
+<div ng-controller="catViewerController as cc">
+
+    <div>
+        <input type="search" ng-model="catName">
+        <input type="button" value="Search" data-ng-click="cc.searchCatData(catName)">
+    </div>
+    <div>
+        <h4>Sort List of Cat Names</h4>
+        <select name="singleSelect" ng-model="sortBy" ng-change="cc.setOrder(sortBy)" class="selectOrder">
+            <option value="">Ascending</option>
+            <option value="dsc">Descending</option>
+        </select>
+    </div>
+
+    <div>
+        <ul>
+            <li ng-repeat="cat in cc.catInfo | orderBy: cc.order">
+                <a href="#" data-ng-click="cc.getCatInfo(cat)">{{cat.name}}</a>
+                <span class="glyphicon glyphicon-ok" aria-hidden="true" ng-show="cat.isViewed"></span>
+            </li>
+        </ul>
+        <div class="clearfix float-my-children" ng-if="cc.selectedCat">
+
+            <img ng-src="{{cc.selectedCat.src}}" alt="Cat" class="catimg">
+            <div>
+                <label class="label">Cat Name : {{cc.selectedCat.name}} </label> </br>
+                </br>
+                <label class="label">Vote Count</label>
+                <input id="voteCount" type="number" min="0" max="100" value="1" ng-model="cc.selectedCat.voteCount" ng-init="voteCount=0">
+            </div>
+        </div>
+    </div>
+</div>
