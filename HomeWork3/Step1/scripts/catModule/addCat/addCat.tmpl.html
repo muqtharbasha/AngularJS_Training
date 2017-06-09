@@ -3,11 +3,16 @@
         <form name="catForm" novalidate on-enter="ctrl.submit(catForm.$valid)">
             <div class="form-group" ng-class="{ 'has-error' : catForm.name.$invalid && !catForm.name.$pristine }">
                 <label>Name</label>
-                <input type="text" name="name" class="form-control" ng-model="ctrl.cat.name" required>
+                <input type="text" name="name" class="form-control" ng-model="ctrl.cat.name" input-focus="focusInput" ng-init="focusInput=true"
+                    required>
                 <p ng-show="catForm.name.$invalid && !catForm.name.$pristine" class="help-block">cat name is required.</p>
             </div>
             <div class="form-group">
-                <img-preview img-url=ctrl.cat.url style="width: 250px"></img-preview>
+                <img-preview img-url=ctrl.cat.url style="width: 250px" ></img-preview>
+                <!--<input name=cUrl image-url-verify url="ctrl.cat.url" image-valid="ctrl.cat.imageOk" style="width: 250px" />
+                <span ng-show="catForm.cUrl.$dirty && catForm.cUrl.$error.required">This is a required field</span>
+                <span ng-show="catForm.cUrl.$dirty && !imageOk && ctrl.cat.url != null">Enter Valid Image URL</span>-->
+
             </div>
             <div class="form-group">
                 <button type="button" class="btn btn-primary" ng-disabled="catForm.$invalid">Submit</button>
